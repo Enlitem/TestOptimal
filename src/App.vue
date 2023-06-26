@@ -30,12 +30,6 @@
       >
         Сохранить изменения
       </button>
-      <button
-        @click="cancel"
-        class="px-2 py-2 border-2 w-1/2 my-1 mx-auto border-slate-400 rounded-xl md:w-1/4"
-      >
-        Отменить изменения
-      </button>
     </div>
   </div>
 </template>
@@ -74,25 +68,16 @@ export default {
       ],
       isEdit: false,
       selectedItem: -1,
-      cache: "",
     };
   },
   methods: {
     edit(index) {
       this.isEdit = true;
       this.selectedItem = index;
-      this.cache = this.data[index].value;
     },
     changeValue() {
       this.isEdit = false;
       this.selectedItem = -1;
-      this.cache = "";
-    },
-    cancel() {
-      this.data[this.selectedItem].value = this.cache;
-      this.isEdit = false;
-      this.selectedItem = -1;
-      this.cache = "";
     },
   },
 };
